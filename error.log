@@ -1,0 +1,37 @@
+
+#   Failed test 'The specialised error function for the screen object doesn't work like we tought.'
+#   at t/03-screen.t line 422.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+ 	<title>GUI-HTML-Widget</title>
+ 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+ 	<meta http-equiv="Content-Style-Type" content="text/css" />
+ 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+ 		
+ 	
+ 	<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+ 	
+ </head>
+ 
+ <body>
+ 		<form action="/" method="post"><div class="errorList"><h2 class="errorList">Some errors occured.</h2><dl class="errorList"><dt/><dd>This is a dummy message for the violation of a business rule with special caracters [יאüש]<a href="#my_screen">Fix it.</a></dd></dl></div><p class="float"><input id="bla" name="bla" type="text" value="1"/></p><p class="float"><input id="bli" name="bli" type="text" value="2"/></p><p class="float"><input id="textObject" name="textObject" type="text" value="2"/></p><input class="btn" id="button" name="button" type="submit" value="&quot;A Table!! יאüש\&quot;'&quot;&quot;"/><div style="display:none"><input id="GHW:screenDescription" name="GHW:screenDescription" type="hidden" value="{&quot;counter&quot;:&quot;0&quot;,&quot;screenName&quot;:&quot;/&quot;}"/></div></form>
+ </body>
+ </html>
+ '
+#     expected: ''
+# Looks like you planned 32 tests but ran 33.
+# Looks like you failed 1 test of 33 run.
+t/03-screen.t .. 
+Dubious, test returned 1 (wstat 256, 0x100)
+All 32 subtests passed 
+
+Test Summary Report
+-------------------
+t/03-screen.t (Wstat: 256 Tests: 33 Failed: 1)
+  Failed test:  33
+  Non-zero exit status: 1
+  Parse errors: Bad plan.  You planned 32 tests but ran 33.
+Files=1, Tests=33,  0 wallclock secs ( 0.04 usr  0.00 sys +  0.23 cusr  0.02 csys =  0.29 CPU)
+Result: FAIL
+Failed 1/1 test programs. 1/33 subtests failed.
