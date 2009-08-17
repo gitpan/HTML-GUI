@@ -7,7 +7,7 @@ use HTML::GUI::widget;
 
 =head1 NAME
 
-HTML::GUI::event - Create and control a event input for webapp
+HTML::GUI::log::event - Create and control a event input for webapp
 
 =head1 VERSION
 

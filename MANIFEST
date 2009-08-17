@@ -1,9 +1,14 @@
 Build.PL
 Changes
-cmp.html
 error.log
-expected.html
-got.html
+HTML-GUI-0.01.tar.gz
+HTML-GUI-0.01/Changes
+HTML-GUI-0.01/lib/HTML/GUI/header.pm
+HTML-GUI-0.01/lib/HTML/GUI/log/eventList.pm
+HTML-GUI-0.01/t/04-fieldset.t
+HTML-GUI-0.01/t/08-select.t
+HTML-GUI-0.01/t/10-error.t
+HTML-GUI-0.01/t/12-dialog.t
 lib/HTML/GUI/actionbar.pm
 lib/HTML/GUI/br.pm
 lib/HTML/GUI/button.pm

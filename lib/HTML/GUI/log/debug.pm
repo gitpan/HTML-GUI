@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-HTML::GUI::debug - Create and control a debug input for webapp
+HTML::GUI::log::debug - Create and control a debug input for webapp
 
 =head1 VERSION
 

@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-HTML::GUI::info - Create and control a info input for webapp
+HTML::GUI::info::info - Create and control a info input for webapp
 
 =head1 VERSION
 

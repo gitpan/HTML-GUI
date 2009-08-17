@@ -8,7 +8,7 @@ use HTML::GUI::log::event;
 
 =head1 NAME
 
-HTML::GUI::error - Create and control a error input for webapp
+HTML::GUI::log::error - Create and control a error input for webapp
 
 =head1 VERSION
 

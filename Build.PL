@@ -12,7 +12,7 @@ my $builder = Module::Build->new(
     build_requires => {
         'Test::More' => 0,
     },
-    add_to_cleanup      => [ 'HTML-GUI-widget-*' ],
+    add_to_cleanup      => [ 'HTML-GUI-*' ],
 );
 
 $builder->add_build_element('dat');
