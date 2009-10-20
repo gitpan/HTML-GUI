@@ -11,6 +11,12 @@ my $builder = Module::Build->new(
 							'lib/HTML/GUI/templates/css/base.css' => 'lib/HTML/GUI/templates/css/base.css'	},
     build_requires => {
         'Test::More' => 0,
+				'Data::Compare' =>0,
+				'JSON' =>0,
+				'Locale::TextDomain' =>0,
+				'Log::Log4perl' =>0,
+				'POSIX' =>0,
+				'YAML::Syck' =>0,
     },
     add_to_cleanup      => [ 'HTML-GUI-*' ],
 );

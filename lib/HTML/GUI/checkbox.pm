@@ -83,14 +83,14 @@ sub setValue
 
 =pod 
 
-=head3 getHtml
+=head3 getNudeHtml
 
    Description : 
-      Return the html of the widget.
+      Return the html of the widget to be inserted in a <p> tag or a a table.
 
 =cut
 
-sub getHtml
+sub getNudeHtml
 {
   my($self) = @_;
 	my %tagProp=();
@@ -115,11 +115,7 @@ sub getHtml
 		$tagProp{checked} = 'checked';
 	}
   
-  return $self->getHtmlTag("p",{class=>("float")},
-														$self->getLabelHtml() 
-														.$self->getHtmlTag("input",
-																						\%tagProp)
-												  );
+  return $self->getHtmlTag("input", \%tagProp);
 }
 
 =pod 
@@ -156,7 +152,7 @@ Jean-Christian Hassler, C<< <jhassler at free.fr> >>
 
 Please report any bugs or feature requests to
 C<bug-gui-libhtml-checkbox at rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=HTML-GUI-widget>.
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=HTML-GUI>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
@@ -172,19 +168,19 @@ You can also look for information at:
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/HTML-GUI-widget>
+L<http://annocpan.org/dist/HTML-GUI>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/HTML-GUI-widget>
+L<http://cpanratings.perl.org/d/HTML-GUI>
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-GUI-widget>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-GUI>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/HTML-GUI-widget>
+L<http://search.cpan.org/dist/HTML-GUI>
 
 =back
 

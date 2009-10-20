@@ -13,9 +13,9 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
-use Locale::TextDomain qw (HTML::widget);
+use Locale::TextDomain qw (GUI::HTML);
 use POSIX qw(strftime);
 use Data::Compare;
 use YAML::Syck;
@@ -129,14 +129,16 @@ sub instantiate {
 	}
 	my $wtype = $data->{type}.'::' ;
 	if (!exists $HTML::GUI::{$wtype}){
-		my $moduleFilename = HTML::GUI::widget->getPath().$data->{type}.'.pm';
-		if (-e $moduleFilename){
-				#dynamically load the missing modules
-				$moduleFilename =~ s/^lib\///;
-				require $moduleFilename;
-		}else{
-				return undef;
+		my $moduleFilename = $data->{type}.'.pm';
+		if ($moduleFilename !~ '::'){
+				#no namespace specified => this is a HTML::GUI native
+				#widget
+				$moduleFilename = 'HTML::GUI::'.$moduleFilename;
 		}
+		#convert module name to fileName
+		$moduleFilename =~ s/::/\//g;
+
+		require $moduleFilename;
   }
 
 # Rastafarian code inside !!
@@ -195,6 +197,24 @@ sub setParent
   my($self,$parent) = @_;
 	$self->{parent} = $parent;
 
+}
+
+=pod 
+
+=head3 top
+
+   Return : 
+     the root of the widget tree or itself if the widget doesn't belong to 
+		 any container
+
+=cut
+sub top {
+  my($self) = @_;
+	if (defined $self->{parent}){
+		return $self->{parent}->top();
+	}else{
+		return $self;
+	}
 }
 
 
@@ -292,6 +312,20 @@ sub getIds
 {
   my($self) = @_;
 	return ($self->{id});
+}
+
+=pod
+
+=head3 getTempId
+
+  Return a new widget id who is unique for the current screen.
+
+=cut
+my $idCounter = 0;
+sub getTempId{
+  my($self) = @_;
+	$idCounter++;
+	return 'GHW::tmpId::'.$idCounter;
 }
 
 =pod 
@@ -594,7 +628,8 @@ sub error
 				$params, # hashref : params of the error
 		) = @_;
 		my $eventList = HTML::GUI::log::eventList::getCurrentEventList();
-		my %errorParams = ();
+		my %errorParams = ( visibility => 'pub',
+                      	'error-type' => 'internal',);
 		foreach my $paramName qw/visibility error-type constraint-info message/{
 				if (exists $params->{$paramName}){
 						$errorParams{$paramName} = $params->{$paramName};
@@ -945,12 +980,9 @@ sub getFunctionFromName{
 						'message' => $msg,
 						});
 				return undef
-	 }else{
-				return \&{$functionName};
 	 }
- }else{
-		return \&{$functionName};
  }
+ return \&{$functionName};
 }
 =head1 AUTHOR
 
@@ -960,7 +992,7 @@ Jean-Christian Hassler, C<< <jhassler at free.fr> >>
 
 Please report any bugs or feature requests to
 C<bug-gui-libhtml-screen at rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=HTML-GUI-widget>.
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=HTML-GUI>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
@@ -977,19 +1009,19 @@ You can also look for information at:
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/HTML-GUI-widget>
+L<http://annocpan.org/dist/HTML-GUI>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/HTML-GUI-widget>
+L<http://cpanratings.perl.org/d/HTML-GUI>
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-GUI-widget>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-GUI>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/HTML-GUI-widget>
+L<http://search.cpan.org/dist/HTML-GUI>
 
 =back
 

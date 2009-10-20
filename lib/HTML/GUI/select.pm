@@ -166,14 +166,14 @@ sub getDefinitionData($)
 
 =pod 
 
-=head3 getHtml
+=head3 getNudeHtml
 
    Description : 
-      Return the html of the widget.
+      Return the html of the widget to be inserted in a <p> tag or a a table.
 
 =cut
 
-sub getHtml
+sub getNudeHtml
 {
   my($self) = @_;
 	my %tagProp=();
@@ -205,11 +205,7 @@ sub getHtml
 																										
 	}
   
-  return $self->getHtmlTag("p",{class=>("float")},
-														$self->getLabelHtml() 
-														.$self->getHtmlTag("select",
-																						\%tagProp,$optionHtml)
-												  );
+  return $self->getHtmlTag("select", \%tagProp,$optionHtml);
 }
 
 

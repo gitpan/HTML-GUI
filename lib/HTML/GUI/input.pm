@@ -140,7 +140,7 @@ sub setValueFromParams
 {
   my($self,$params) = @_;
 	if (defined $params->{$self->{id}} ){
-		$self->{value} = $params->{$self->{id}};
+		$self->setValue($params->{$self->{id}});
   }
 }
 
@@ -225,6 +225,24 @@ sub error
 	$eventList->addEvent($errorEvent);
 }
 
+=pod
+
+=head3 getHtml
+   
+	 Description : 
+      Return the html of the widget. It can be directly inserted into a screen
+
+=cut
+
+sub getHtml{
+  my ($self)= @_;
+  
+	return $self->getHtmlTag("p",{class=>("float")},
+														$self->getLabelHtml() 
+														.$self->getNudeHtml()
+												  );
+}
+
 =head1 AUTHOR
 
 Jean-Christian Hassler, C<< <jhassler at free.fr> >>
@@ -233,7 +251,7 @@ Jean-Christian Hassler, C<< <jhassler at free.fr> >>
 
 Please report any bugs or feature requests to
 C<bug-gui-libhtml-input at rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=HTML-GUI-widget>.
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=HTML-GUI>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
@@ -249,19 +267,19 @@ You can also look for information at:
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/HTML-GUI-widget>
+L<http://annocpan.org/dist/HTML-GUI>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/HTML-GUI-widget>
+L<http://cpanratings.perl.org/d/HTML-GUI>
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-GUI-widget>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-GUI>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/HTML-GUI-widget>
+L<http://search.cpan.org/dist/HTML-GUI>
 
 =back
 
