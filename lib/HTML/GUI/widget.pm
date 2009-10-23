@@ -13,7 +13,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Locale::TextDomain qw (GUI::HTML);
 use POSIX qw(strftime);

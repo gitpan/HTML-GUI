@@ -27,13 +27,10 @@ lib/HTML/GUI/templates/main.html
 lib/HTML/GUI/templates/test.html
 lib/HTML/GUI/text.pm
 lib/HTML/GUI/widget.pm
-mail.txt
 Makefile.PL
 MANIFEST			This list of files
 META.yml
 README
-rename.pl
-resu
 t/00-load.t
 t/01-widget.t
 t/02-text.t

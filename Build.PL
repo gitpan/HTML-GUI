@@ -17,6 +17,7 @@ my $builder = Module::Build->new(
 				'Log::Log4perl' =>0,
 				'POSIX' =>0,
 				'YAML::Syck' =>0,
+				'HTML::Template' => 0,
     },
     add_to_cleanup      => [ 'HTML-GUI-*' ],
 );

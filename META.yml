@@ -1,6 +1,6 @@
 ---
 name: HTML-GUI
-version: 0.03
+version: 0.04
 author:
   - 'Jean-Christian Hassler <jhassler@free.fr>'
 abstract: Create and control GUI for web application
@@ -9,6 +9,7 @@ resources:
   license: ~
 build_requires:
   Data::Compare: 0
+  HTML::Template: 0
   JSON: 0
   Locale::TextDomain: 0
   Log::Log4perl: 0
@@ -81,7 +82,7 @@ provides:
     version: 0.01
   HTML::GUI::widget:
     file: lib/HTML/GUI/widget.pm
-    version: 0.03
+    version: 0.04
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
